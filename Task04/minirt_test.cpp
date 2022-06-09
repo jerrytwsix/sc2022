@@ -53,6 +53,7 @@ struct Point2D
     Point2D(int x, int y): x(x), y(y){}
 };
 
+template<typename T>
 class LockingQueue
 {
 public:
@@ -168,7 +169,7 @@ int main(int argc, char **argv) {
     for(int x = 0; x < viewPlaneResolutionX; x++)
         for(int y = 0; y < viewPlaneResolutionY; y++) 
         {
-            pool->pushTask(x, y);
+            pool->pushTask({x, y});
         }
 
     pool->join();
